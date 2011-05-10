@@ -15,8 +15,8 @@
  */
 
 (function($) {
-  $.headline = function(element, arguments) {
-    var options = $.extend({}, $.headline.defaults, arguments);
+  $.headline = function(element, args) {
+    var options = $.extend({}, $.headline.defaults, args);
     var index    = 0,
         frame    = 0,
         position = 0,
@@ -28,17 +28,19 @@
       var item = $(element.children().get(position)),
           cursor = element.children('.cursor');
 
-      item.toggleClass(options.class);
+      item.toggleClass(options.cssClass);
 
       if(position < options.elements[index].length) {
-        cursor.addClass( options.class);
+        cursor.addClass(options.cssClass);
       } else {
         var operation = Math.floor(frame / 10) % 2 === 0 ? 'addClass' : 'removeClass';
-        cursor[operation](options.class);
+        cursor[operation](options.cssClass);
       }
 
       if(mode === 0) {
-        if(position < options.elements[index].length) position++;
+        if(position < options.elements[index].length) {
+          position++;
+        }
       } else {
         if(position > 0) {
           position--;
@@ -51,42 +53,43 @@
         }
       }
       frame++;
-      if(frame % options.delay === 0)
+      if(frame % options.timeout === 0) {
         mode = 1 - mode;
+      }
 
-    }, options.timeout)
+    }, options.interval);
 
     return element;
-  }
+  };
 
   $.fn.headline = function(options) {
     if($.isArray(options)) {
       options = { elements: options };
-    };
+    }
 
     return $.headline(this, options);
-  }
+  };
 
   /* Default options */
   $.headline.defaults = {
     cursor: true, // Displays a "_" cursor at the end of the phrase.
-    timeout: 40, // Interval between animations.
-    delay: 400, // Interval between phrases.
-    class: 'headline-off' // Class used to hide the letters.
-  }
+    interval: 40, // Interval between animations.
+    timeout: 400, // Interval between phrases.
+    cssClass: 'headline-off' // Class used to hide the letters.
+  };
 
   /* Private Methods */
   function writeLine(elem, opts, index) {
     var letters = opts.elements[index].split('');
-    for(i in letters) {
-      elem.append(createNode(letters[i], opts.class))
-    }
+    $.each(letters, function(number, letter) {
+      elem.append(createNode(letter,opts.cssClass));
+    });
     if(opts.cursor) {
       elem.append(createNode("_").addClass('cursor'));
     }
   }
 
   function createNode(value, klass) {
-    return $("<span />", {text: value, class: klass });
+    return $("<span />", {text: value, 'class': klass });
   }
 })(jQuery);
