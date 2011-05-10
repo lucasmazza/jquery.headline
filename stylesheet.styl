@@ -1,0 +1,93 @@
+border-radius()
+  -webkit-border-radius arguments
+  -moz-border-radius arguments
+  border-radius arguments
+
+gradient(begin end)
+  background -moz-linear-gradient(top, begin, end)
+  background -webkit-gradient(linear, 0% 0%, 0% 100%, from(begin), to(end))
+
+box-shadow()
+  -webkit-box-shadow arguments
+  -moz-box-shadow arguments
+  box-shadow arguments
+
+blu = darken(#00E, 30%)
+
+html, body
+  background-color #DDD
+
+.headline-off
+  visibility hidden
+
+body
+  font 13px "Lucida Grande", Verdana,arial,helvetica,sans-serif
+  unquote("*font-size small")
+
+.main
+  width 780px
+  margin 20px auto
+  padding 10px
+  border-radius 7px
+
+  h1
+    border 1px solid #777
+    border-radius 5px
+    border 1px solid rgba(0, 0, 0, 0.3)
+    border-right-color #CCC
+    border-right-color rgba(0, 0, 0, 0.2)
+    border-bottom-color #CCC
+    border-bottom-color rgba(0, 0, 0, 0.1)
+    background #DDD
+    background rgba(#FFF, 0.5)
+    margin 20px 0
+    height 90px
+    padding 10px
+    font-weight bold
+    color #222
+    text-align center
+    font-size 36px
+    text-transform uppercase
+    text-shadow 1px 1px 2px #999
+    span:hover
+      color blu
+
+.section
+  padding 20px 0
+
+a, a:visited
+  color blu
+  padding 2px 3px
+  &:hover
+    color #FFF
+    background-color blu
+
+h2
+  font-size 18px
+  color blu
+  font-weight bold
+  font-style italic
+  padding 5px 0
+
+.spacer
+  width 100%
+  height 0px
+  border-top 1px solid #999
+  border-bottom 1px solid #FFF
+pre
+  border-radius 7px
+  color #EEE
+  background-color #111
+  gradient #333, #111
+  border 1px solid #000
+  margin 5px 0
+  padding 10px
+  &:hover
+    box-shadow 0 0 15px #000
+
+.footer
+  text-align center
+  margin-top 10px
+  text-shadow 1px 1px 1px #FFF
+  color #666
+  font-size 10px
