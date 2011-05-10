@@ -1,3 +1,19 @@
+/*
+ * jQuery Headline Plugin
+ * version: 0.0.1
+ * @requires jQuery 1.6 or later
+ * @homepage https://github.com/lucasmazza/jquery.headline
+ *
+ * Licensed under the MIT:
+ *   http://www.opensource.org/licenses/mit-license.php
+ * Copyright Lucas Mazza
+ *
+ * Usage:
+ *  jQuery(function($) {
+ *    $("#container").headline(['First line', 'Second line', 'Third line']);
+ *  })
+ */
+
 (function($) {
   $.headline = function(element, arguments) {
     var options = $.extend({}, $.headline.defaults, arguments);
@@ -6,7 +22,7 @@
         position = 0,
         mode     = 0;
 
-    prepare(element, options, index);
+    writeLine(element, options, index);
 
     window.setInterval(function() {
       var item = $(element.children().get(position)),
@@ -31,7 +47,7 @@
           index++;
           index%= options.elements.length;
           element.empty();
-          prepare(element, options, index);
+          writeLine(element, options, index);
         }
       }
       frame++;
@@ -43,32 +59,34 @@
     return element;
   }
 
-  function prepare(element, opts, index) {
-    var chars = opts.elements[index].split('');
-    for(c in chars) {
-      element.append(createNode(chars[c], opts.class))
+  $.fn.headline = function(options) {
+    if($.isArray(options)) {
+      options = { elements: options };
+    };
+
+    return $.headline(this, options);
+  }
+
+  /* Default options */
+  $.headline.defaults = {
+    cursor: true, // Displays a "_" cursor at the end of the phrase.
+    timeout: 40, // Interval between animations.
+    delay: 400, // Interval between phrases.
+    class: 'headline-off' // Class used to hide the letters.
+  }
+
+  /* Private Methods */
+  function writeLine(elem, opts, index) {
+    var letters = opts.elements[index].split('');
+    for(i in letters) {
+      elem.append(createNode(letters[i], opts.class))
     }
     if(opts.cursor) {
-      element.append(createNode("_").addClass('cursor'));
+      elem.append(createNode("_").addClass('cursor'));
     }
   }
 
   function createNode(value, klass) {
     return $("<span />", {text: value, class: klass });
-  }
-
-  $.headline.defaults = {
-    cursor: true,
-    timeout: 40,
-    delay: 400,
-    class: 'headline-off'
-  }
-
-  $.fn.headline = function(options) {
-    if($.isArray(options)) {
-      options = { elements: options }
-    };
-
-    return $.headline(this, options);
   }
 })(jQuery);
