@@ -1,0 +1,24 @@
+---
+layout: default
+title: Usage - lucasmazza/jquery.headline @ GitHub
+---
+<h1>jQuery headline - Usage examples</h1>
+<a href="index.html">← Back to the home</a>
+<div class='section'>
+  <h2>Fade effect using CSS animations</h2>
+  <p class='fading example'></p>
+  <p>Instead of the suggested <code>.headline-off { visibility:hidden; }</code> you can use this:</p>
+  <pre class="prettyprint lang-js">span{-webkit-transition:opacity .1s linear;}
+.headline-off{opacity:0;}
+.headline-off .cursor{visibility:hidden;}
+.cursor{opacity: 1;}</pre>
+</div>
+<div class='spacer'></div>
+<div class='section'>
+  <h2>Faster animations</h2>
+  <p class='faster example'></p>
+  <pre class="prettyprint lang-js">$("element").headline({
+  elements: ["One", "Two", "Three"],
+  timeout: 10
+});</pre>
+</div>

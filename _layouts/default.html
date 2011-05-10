@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>{{page.title}}</title>
+  <meta name="description" content="Text animation plugin from the 9elements website.">
+  <meta name="author" content="Lucas Mazza">
+  <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.9.0/build/reset/reset-min.css">
+  <link href="prettify.css" media="screen" rel="stylesheet" type="text/css">
+  <link href="stylesheet.css" media="screen" rel="stylesheet" type="text/css">
+</head>
+<body>
+  <a href="http://github.com/lucasmazza/jquery.headline"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
+  <div class="main">
+    {{content}}
+    <div class='spacer'></div>
+    <p class='footer'>© 2011 Lucas Mazza . MIT License</p>
+  </div>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.0/jquery.js"></script>
+  <script src="prettify.js"></script>
+  <script src="jquery.headline.js"></script>
+  <script>
+  jQuery(function($){
+    $("h1.header").headline([
+      "jQuery headline is a plugin to animate some text on your page",
+      "Like this one",
+      "how cool is that?",
+      "If you like it, grab a copy on GitHub and use it!"
+    ])
+    $("p.fading").headline([
+      "Lorem ipsum dolor sit amet", "consectetur adipisicing elit", "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"
+      ])
+    $("p.faster").headline({
+      elements: [ "Lorem ipsum dolor sit amet", "consectetur adipisicing elit", "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"],
+      interval: 10
+    });
+
+    prettyPrint();
+  });
+  </script>
+</body>
+</html>

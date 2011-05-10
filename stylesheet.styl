@@ -31,6 +31,14 @@ body
   border-radius 7px
 
   h1
+    font-size 36px
+    font-weight bold
+    margin-bottom 10px
+    &.example
+      margin 0
+      height 90px
+
+  .example
     border 1px solid #777
     border-radius 5px
     border 1px solid rgba(0, 0, 0, 0.3)
@@ -41,12 +49,9 @@ body
     background #DDD
     background rgba(#FFF, 0.5)
     margin 20px 0
-    height 90px
     padding 10px
-    font-weight bold
     color #222
     text-align center
-    font-size 36px
     text-transform uppercase
     text-shadow 1px 1px 2px #999
     span:hover
@@ -74,16 +79,34 @@ h2
   height 0px
   border-top 1px solid #999
   border-bottom 1px solid #FFF
+p
+  margin 5px 0 10px
 pre
   border-radius 7px
   color #EEE
   background-color #111
   gradient #333, #111
-  border 1px solid #000
-  margin 5px 0
-  padding 10px
+  border 1px solid #000 !important
+  padding 10px !important
   &:hover
     box-shadow 0 0 15px #000
+
+p.fading
+  span
+    -webkit-transition opacity 0.1s linear
+  .headline-off
+    opacity 0
+    .cursor
+      visibility hidden
+  .cursor
+    opacity 1
+
+code
+  background-color #D9EAEB
+  padding 2px 4px
+  font-weight bold
+  border-radius 5px
+  border 1px solid #D2D2CA
 
 .footer
   text-align center
@@ -91,3 +114,12 @@ pre
   text-shadow 1px 1px 1px #FFF
   color #666
   font-size 10px
+
+
+// Prettify crap
+.pln, .pun
+  color #FFF
+.str
+  color #78966a
+.lit
+  color #cf6a4c
