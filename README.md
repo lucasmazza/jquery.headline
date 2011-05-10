@@ -16,13 +16,14 @@ And it works!
 
 ## Examples
 
-There's a simple example page inside the `examples` directory. Online demo soon.
+There's a simple example page inside the `examples` directory and more demos at the [GitHub project page](http://lucasmazza.github.com/jquery.headline).
 
-## TODO
+## Grab the code
 
-* Minified version.
-* GitHub Page w/ docs and examples.
+* Minified version at `dist/`.
+* Full version at `src/`.
 
+Have fun!
 
 ## License
 
