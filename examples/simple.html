@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>jquery.headline Sample page</title>
+  <style>
+    .headline-off { visibility:hidden;}
+  </style>
+</head>
+<h1></h1>
+<body>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+  <script src="../src/jquery.headline.js"></script>
+  <script>
+    jQuery(function($) {
+      $("h1").headline([
+        "THIS IS THE FIRST PHRASE",
+        "THERE'S ANOTHER TOO",
+        "AND ALSO THE THIRD"
+        ])
+    })
+  </script>
+</body>
+</html>
