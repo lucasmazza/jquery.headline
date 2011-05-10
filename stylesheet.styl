@@ -63,6 +63,7 @@ body
 a, a:visited
   color blu
   padding 2px 3px
+  text-shadow none !important
   &:hover
     color #FFF
     background-color blu
@@ -73,6 +74,7 @@ h2
   font-weight bold
   font-style italic
   padding 5px 0
+  text-shadow 1px 1px 1px #CCC
 
 .spacer
   width 100%
@@ -81,6 +83,8 @@ h2
   border-bottom 1px solid #FFF
 p
   margin 5px 0 10px
+  text-shadow 1px 1px 1px #CCC
+
 pre
   border-radius 7px
   color #EEE
@@ -93,7 +97,7 @@ pre
 
 p.fading
   span
-    -webkit-transition opacity 0.1s linear
+    -webkit-transition opacity 1s linear
   .headline-off
     opacity 0
     .cursor

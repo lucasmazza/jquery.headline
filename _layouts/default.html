@@ -22,16 +22,19 @@
   <script src="jquery.headline.js"></script>
   <script>
   jQuery(function($){
-    $("h1.header").headline([
+    $(".header").headline([
       "jQuery headline is a plugin to animate some text on your page",
       "Like this one",
       "how cool is that?",
       "If you like it, grab a copy on GitHub and use it!"
-    ])
-    $("p.fading").headline([
+    ]);
+
+    $(".vanilla").headline(["One", "Two", "Three"]);
+
+    $(".fading").headline([
       "Lorem ipsum dolor sit amet", "consectetur adipisicing elit", "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"
       ])
-    $("p.faster").headline({
+    $(".faster").headline({
       elements: [ "Lorem ipsum dolor sit amet", "consectetur adipisicing elit", "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"],
       interval: 10
     });
